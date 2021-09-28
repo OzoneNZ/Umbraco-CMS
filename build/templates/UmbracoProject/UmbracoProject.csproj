@@ -3,9 +3,10 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <RootNamespace Condition="'$(name)' != '$(name{-VALUE-FORMS-}safe_namespace)'">Umbraco.Cms.Web.UI</RootNamespace>
-        <DefaultItemExcludes>$(DefaultItemExcludes);App_Plugins/**;</DefaultItemExcludes>
-        <DefaultItemExcludes>$(DefaultItemExcludes);umbraco/**;</DefaultItemExcludes>
-        <DefaultItemExcludes>$(DefaultItemExcludes);wwwroot/media/**;</DefaultItemExcludes>
+        <DefaultItemExcludes>$(DefaultItemExcludes);umbraco/Data/**;</DefaultItemExcludes>
+        <DefaultItemExcludes>$(DefaultItemExcludes);umbraco/Logs/**;</DefaultItemExcludes>
+        <DefaultItemExcludes>$(DefaultItemExcludes);umbraco/mediacache/**;</DefaultItemExcludes>
+        <DefaultItemExcludes>$(DefaultItemExcludes);umbraco/models/**;</DefaultItemExcludes>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,12 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="App_Plugins/**" CopyToOutputDirectory="Always" />
-        <Content Include="umbraco/**" CopyToOutputDirectory="Always" />
-        <Content Remove="umbraco/Data/**" />
-        <Content Remove="umbraco/Logs/**" />
-        <Content Remove="umbraco/mediacache/**" />
-        <Content Remove="umbraco/models/**" />
+        <Content Include="App_Plugins/**" CopyToOutputDirectory="Always" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);@(_ContentIncludedByDefault)" />
+        <Content Include="umbraco/**" CopyToOutputDirectory="Always" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);@(_ContentIncludedByDefault)" />
         <Compile Include="umbraco/models/**" Exclude="**/*.flag" />
     </ItemGroup>
 
