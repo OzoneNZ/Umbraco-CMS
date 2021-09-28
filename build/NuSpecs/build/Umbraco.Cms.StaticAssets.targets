@@ -19,7 +19,7 @@
     <Target Name="_EnsureUmbracoAssetsIncluded" BeforeTargets="GetCopyToPublishDirectoryItems">
         <ItemGroup>
             <_UmbracoFolderFiles Include="umbraco\**" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);@(_ContentIncludedByDefault)" />
-            <ContentWithTargetPath Include="@(_UmbracoFolderFiles)" TargetPath="%(Identity)" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+            <ContentWithTargetPath Include="@(_UmbracoFolderFiles)" TargetPath="%(Identity)" CopyToPublishDirectory="Always" />
         </ItemGroup>
     </Target>
 
